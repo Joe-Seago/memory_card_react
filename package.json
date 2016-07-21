@@ -1,0 +1,11 @@
+{
+  "name": "memory_card_react",
+  "version": "1.0.0",
+  "description": "## To Do List ### Internal [ ] Choose 4 random cards from a standard 52 playing card set   [ ] 2 of the 4 random cards must be the same [ ] Detect which card(s) the user clicks on ### External [ ] Display back of cards on webpage loads [ ] When clicked the cards will show their faces",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC"
+}
