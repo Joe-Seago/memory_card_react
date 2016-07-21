@@ -12,9 +12,9 @@
 ## Steps
 1. display a card face up ***
 2. display a card face down ***
-2. display 4 cards face up
-3. display 4 cards face down
-4. when clicked the card should turn over
+2. display 4 cards face up ***
+3. display 4 cards face down ***
+4. when clicked the card should turn over ***
 5. once face up a card will not flip back over until a second card has been fliped face up (i.e. two card must be face up)
 6. Check if the two face up cards are the same
 7. if the two face up are not the same flip them face down
