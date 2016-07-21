@@ -10,8 +10,8 @@
 [ ] When clicked the cards will show their faces
 
 ## Steps
-1. display a card face up
-2. display a card face down
+1. display a card face up ***
+2. display a card face down ***
 2. display 4 cards face up
 3. display 4 cards face down
 4. when clicked the card should turn over
