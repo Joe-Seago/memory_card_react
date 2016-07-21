@@ -5,25 +5,15 @@ var arrayCards = ['ac.gif', '2h.gif', '5c.gif', '7s.gif'];
 
 var Board = React.createClass({
   render: function() {
-    var itemsToRender = [];
-    this.props.cards.forEach(function(element, index) {
-      itemsToRender.push(<Card img={element} key={index} id={index} />);
-    });
-
     return(
       <div>
-        {itemsToRender}       
+        <CardContainer />   
       </div>
     );
   }
 });
 
 var Card = React.createClass({
-  getInitialState: function() {
-    return {
-      faceUp: false,
-    };
-  },
   onChange: function() {
     this.setState({
       faceUp: !this.state.faceUp
@@ -53,6 +43,23 @@ var Card = React.createClass({
   }
 });
 
+var CardContainer = React.createClass({
+	getInitialState: function() {
+		return {
+			Cards: [{img: 'ac.gif', faceUp: false}, {img: '2h.gif', faceUp: false}, {img: '5c.gif', faceUp: false}, {img: '7s.gif', faceUp: false}]
+		}
+	},
+	render: function() {
+		return (
+			<div>
+				{this.state.Cards.map(function(element, index) {
+					return <Card key={index} img={element.img} faceUp={element.faceUp} />;
+				})}
+			</div>
+		);
+	}
+});
+
 document.addEventListener('DOMContentLoaded', function() {
-    ReactDOM.render(<Board cards={arrayCards} />, document.getElementById('app'));
+    ReactDOM.render(<Board  />, document.getElementById('app'));
 });
