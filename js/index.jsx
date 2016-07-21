@@ -1,8 +1,6 @@
 var React = require('react');
 var ReactDOM = require('react-dom');
 
-var arrayCards = ['ac.gif', '2h.gif', '5c.gif', '7s.gif'];
-
 var Board = React.createClass({
   render: function() {
     return(
@@ -15,12 +13,10 @@ var Board = React.createClass({
 
 var Card = React.createClass({
   onChange: function() {
-    this.setState({
-      faceUp: !this.state.faceUp
-    });
+    this.props.flipCard(this.props.id);
   },
   render: function() {
-    if(this.state.faceUp) {
+    if(this.props.faceUp) {
       return (
         <div>
           <label htmlFor={this.props.id}>
@@ -46,15 +42,30 @@ var Card = React.createClass({
 var CardContainer = React.createClass({
 	getInitialState: function() {
 		return {
-			Cards: [{img: 'ac.gif', faceUp: false}, {img: '2h.gif', faceUp: false}, {img: '5c.gif', faceUp: false}, {img: '7s.gif', faceUp: false}]
+			cards: [{img: 'ac.gif', faceUp: false}, {img: '2h.gif', faceUp: false}, {img: '5c.gif', faceUp: false}, {img: '7s.gif', faceUp: false}]
 		}
 	},
+  flipCard: function(index) {
+    var temp = this.state.cards.slice();
+    temp[index].faceUp = !temp[index].faceUp;
+
+    this.setState({
+      cards: temp
+    });
+  },
 	render: function() {
+    // Using a local variable so I can access this.flipCard inside the map method.
+    var flipCard = this.flipCard;
 		return (
 			<div>
-				{this.state.Cards.map(function(element, index) {
-					return <Card key={index} img={element.img} faceUp={element.faceUp} />;
-				})}
+				{this.state.cards.map(function(element, index) {
+					return <Card key={index} 
+            img={element.img} 
+            flipCard={flipCard}
+            key={index} 
+            id={index} 
+            faceUp={element.faceUp} />;
+				}) }
 			</div>
 		);
 	}
