@@ -15,9 +15,10 @@
 2. display 4 cards face up ***
 3. display 4 cards face down ***
 4. when clicked the card should turn over ***
-5. once face up a card will not flip back over until a second card has been fliped face up (i.e. two card must be face up)
-6. Check if the two face up cards are the same
-7. if the two face up are not the same flip them face down
-8. randomly choose a card to display
-9. randomly choose 4 cards to display
-10. ensure 2 of the 4 cards displayed are the same
+5. once face up, a card cannot immediately be fliped face down again ***
+6. once face up a card will not flip back over until a second card has been fliped face up (i.e. two card must be face up) *** 
+7. Check if the two face up cards are the same ***
+8. if the two face up are not the same flip them face down
+9. randomly choose a card to display
+10. randomly choose 4 cards to display
+11. ensure 2 of the 4 cards displayed are the same
