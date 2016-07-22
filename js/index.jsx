@@ -12,8 +12,8 @@ var Board = React.createClass({
 });
 
 var Card = React.createClass({
-  onChange: function() {
-    this.props.flipCard(this.props.id);
+  onChange: function(e) {
+    this.props.flipCard(this.props.id, e);
   },
   render: function() {
     if(this.props.faceUp) {
@@ -45,13 +45,24 @@ var CardContainer = React.createClass({
 			cards: [{img: 'ac.gif', faceUp: false}, {img: '2h.gif', faceUp: false}, {img: '5c.gif', faceUp: false}, {img: '7s.gif', faceUp: false}]
 		}
 	},
-  flipCard: function(index) {
+  flipCard: function(index, e) {
     var temp = this.state.cards.slice();
     temp[index].faceUp = !temp[index].faceUp;
 
-    this.setState({
-      cards: temp
+    var faceUpArray = temp.filter(function(d) {
+    	return d.faceUp;
     });
+
+    console.log(faceUpArray);
+
+    if (faceUpArray.length <= 2) {
+    	this.setState({
+	      cards: temp
+	    });
+    } else {
+    	console.log('fired')
+    	e.preventDefault();
+    }
   },
 	render: function() {
     // Using a local variable so I can access this.flipCard inside the map method.
